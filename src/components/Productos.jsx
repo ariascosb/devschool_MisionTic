@@ -44,7 +44,8 @@ export const Productos = () => {
                   <th scope="col">#</th>
                   <th scope="col">Descripcion</th>
                   <th scope="col">Cantidad</th>
-                  <th scope="col">Precio Unitario</th>
+                  <th scope="col">Precio Unitario ($)</th>
+                  <th scope="col">Estado</th>
                   <th scope="col">Accion</th>
                 </tr>
               </thead>
@@ -56,6 +57,7 @@ export const Productos = () => {
                       <td>{producto.descripcion}</td>
                       <td>{producto.cantidad}</td>
                       <td>{producto.precioUnitario}</td>
+                      <td>{producto.estado}</td>
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
                           to={`/lista-productos/${producto.id}`}>

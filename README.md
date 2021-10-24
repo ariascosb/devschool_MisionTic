@@ -9,7 +9,7 @@
   </a>
 </p>
 
-> Rutas Protegidas React y Firebase
+> Entrega final Tercer ciclo
 
 ## Pasos para ejecución
 
@@ -17,10 +17,3 @@ Dentro del proyecto debes ejecutar:
 
 ### `npm install` para instalación de las dependencias
 ### `npm start` para levantar el servidor y ver el proyecto
-
-## Author
-
-👤 **Carlos Andres Charris S**
-
-* Twitter: [@Darkklitos](https://twitter.com/Darkklitos)
-* Github: [@Gdaimon](https://github.com/Gdaimon)

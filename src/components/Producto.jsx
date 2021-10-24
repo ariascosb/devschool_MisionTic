@@ -11,6 +11,7 @@ export const Producto = () => {
   const [descripcion, setDescripcion] = useState('')
   const [cantidad, setCantidad] = useState('')
   const [precioUnitario, setPrecioUnitario] = useState('')
+  const [estado, setEstado] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
@@ -21,6 +22,7 @@ export const Producto = () => {
     setDescripcion(productoTemp.descripcion)
     setCantidad(productoTemp.cantidad)
     setPrecioUnitario(productoTemp.precioUnitario)
+    setEstado(productoTemp.estado)
     setLoading(false)
   }
 
@@ -32,6 +34,7 @@ export const Producto = () => {
     setDescripcion('')
     setCantidad('')
     setPrecioUnitario('')
+    setEstado('')
 
 
   }, [id])
@@ -42,7 +45,8 @@ export const Producto = () => {
     const producto = {
       descripcion,
       cantidad,
-      precioUnitario
+      precioUnitario,
+      estado
     }
     // console.log(producto);
 
@@ -58,7 +62,8 @@ export const Producto = () => {
     const producto = {
       descripcion,
       cantidad,
-      precioUnitario
+      precioUnitario,
+      estado
     }
 
     await guardarDatabase('lista-productos', producto)
@@ -103,7 +108,7 @@ export const Producto = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Precio Unitario</label>
+                      <label className="form-label">Precio Unitario ($)</label>
                       <input
                         className="form-control"
                         type="text"
@@ -111,6 +116,16 @@ export const Producto = () => {
                         value={precioUnitario}
                         onChange={(event) => setPrecioUnitario(event.target.value)}
                       />
+                    </div>
+                    <div className="mb-3">
+                      <label className="form-label">Estado  </label>
+                      <select name="select"
+                       placeholder="Estado"
+                        value={estado} 
+                        onChange={(event) => setEstado(event.target.value)}>
+                       <option value="No disponible">No disponible</option>
+                        <option value="Disponible">Disponible</option>
+                       </select>
                     </div>
                     <button
                       className="btn btn-primary"
