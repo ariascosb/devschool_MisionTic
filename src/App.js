@@ -52,13 +52,13 @@ function App() {
             <div className="container mt-3">
                 <Switch>
                     <Route path="/login" component={Login} />
-                    <Route path="/admin" component={Admin} />
+                    <Route path="/admin" component={Productos} />
                     <Route exact path="/lista-usuarios/:id" component={Usuario} />
                     <Route exact path="/usuarios" component={Usuarios} />
                     <Route exact path="/lista-productos/:id" component={Producto} />
                     <Route exact path="/productos" component={Productos} />
                     <Route path="/ventas" component={Ventas} />
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" component={Productos} />
                 </Switch>
                 
             </div>

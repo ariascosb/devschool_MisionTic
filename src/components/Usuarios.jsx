@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { consultarDatabase, eliminarDocumentoDatabase} from '../config/firebase'
+import { consultarDatabase, eliminarDocumentoDatabase,datosUsuario} from '../config/firebase'
 import { Loading } from './Loading'
+import { useHistory } from 'react-router'
 
 
 export const Usuarios = () => {
+
+  const history = useHistory()
+  console.log(history);
+
+  useEffect(() => {
+    const credencialesUsuario = datosUsuario()
+
+    if (credencialesUsuario) {
+      console.log('Existe un usuario');
+    } else {
+      console.log('No Existe un usuario');
+      history.push('/login')
+    }
+
+
+  }, history)
 
   const [listaUsuarios, setListaUsuarios] = useState([])
   const [loading, setLoading] = useState(false)
