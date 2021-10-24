@@ -3,64 +3,64 @@ import { useParams, useHistory } from 'react-router-dom'
 import { actualizarDocumentoDatabase, consultarDocumentoDatabase, guardarDatabase } from '../config/firebase';
 import { Loading } from './Loading'
 
-export const Producto = () => {
+export const Usuario = () => {
 
   const { id } = useParams()
   console.log(id);
 
-  const [descripcion, setDescripcion] = useState('')
-  const [precioUnitario, setPrecioUnitario] = useState('')
+  const [nombre, setNombre] = useState('')
+  const [rol, setRol] = useState('')
   const [estado, setEstado] = useState('')
   const [loading, setLoading] = useState(false)
   const history = useHistory()
 
-  const consultarProducto = async (idProducto) => {
+  const consultarUsuario = async (idUsuario) => {
     setLoading(true)
-    const productoTemp = await consultarDocumentoDatabase('lista-productos', idProducto)
-    console.log(productoTemp);
-    setDescripcion(productoTemp.descripcion)
-    setPrecioUnitario(productoTemp.precioUnitario)
-    setEstado(productoTemp.estado)
+    const UsuarioTemp = await consultarDocumentoDatabase('lista-Usuarios', idUsuario)
+    console.log(UsuarioTemp);
+    setNombre(UsuarioTemp.nombre)
+    setRol(UsuarioTemp.rol)
+    setEstado(UsuarioTemp.estado)
     setLoading(false)
   }
 
   useEffect(() => {
     if (id !== 'create') {
-      consultarProducto(id)
+      consultarUsuario(id)
     }
 
-    setDescripcion('')
-    setPrecioUnitario('')
+    setNombre('')
+    setRol('')
     setEstado('')
 
 
   }, [id])
 
-  const handleActualizarProducto = async (e) => {
+  const handleActualizarUsuario = async (e) => {
     e.preventDefault()
 
-    const producto = {
-      descripcion,
-      precioUnitario,
+    const Usuario = {
+      nombre,
+      rol,
       estado
     }
-    // console.log(producto);
+    // console.log(Usuario);
 
-    await actualizarDocumentoDatabase('lista-productos', id, producto)
-    history.push('/productos')
+    await actualizarDocumentoDatabase('lista-Usuarios', id, Usuario)
+    history.push('/usuarios')
   }
 
-  const handleGuardarProducto = async (e) => {
+  const handleGuardarUsuario = async (e) => {
     e.preventDefault()
 
-    const producto = {
-      descripcion,
-      precioUnitario,
+    const Usuario = {
+      nombre,
+      rol,
       estado
     }
 
-    await guardarDatabase('lista-productos', producto)
-    history.push('/productos')
+    await guardarDatabase('lista-Usuarios', Usuario)
+    history.push('/usuarios')
   }
 
 
@@ -73,7 +73,7 @@ export const Producto = () => {
           :
           <>
             <h3>
-              {id === 'create' ? 'Crear ' : 'Editar '}Producto
+              {id === 'create' ? 'Crear ' : 'Editar '}Usuario
             </h3>
             <hr />
             <div className="mt-3">
@@ -81,24 +81,25 @@ export const Producto = () => {
                 <div className="offset-md-3 col-md-6">
                   <form>
                     <div className="mb-3">
-                      <label className="form-label">Descripcion</label>
+                      <label className="form-label">Nombre</label>
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Descripcion"
-                        value={descripcion}
-                        onChange={(event) => setDescripcion(event.target.value)}
+                        placeholder="nombre"
+                        value={nombre}
+                        onChange={(event) => setNombre(event.target.value)}
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Precio Unitario ($)</label>
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Precio Unitario"
-                        value={precioUnitario}
-                        onChange={(event) => setPrecioUnitario(event.target.value)}
-                      />
+                      <label className="form-label">Rol </label>
+                      <select name="select"
+                       placeholder="Rol"
+                        value={rol} 
+                        onChange={(event) => setRol(event.target.value)}>
+                        <option value=""></option>
+                        <option value="Vendedor">Vendedor</option>
+                        <option value="Administrador">Administrador</option>
+                       </select>
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Estado  </label>
@@ -113,9 +114,9 @@ export const Producto = () => {
                     </div>
                     <button
                       className="btn btn-primary"
-                      onClick={id === 'create' ? handleGuardarProducto : handleActualizarProducto}
+                      onClick={id === 'create' ? handleGuardarUsuario : handleActualizarUsuario}
                     >
-                      {id === 'create' ? 'Guardar' : 'Actualizar'} Producto
+                      {id === 'create' ? 'Guardar' : 'Actualizar'} Usuario
                     </button>
                   </form>
                 </div>

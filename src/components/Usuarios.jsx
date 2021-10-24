@@ -4,27 +4,27 @@ import { consultarDatabase, eliminarDocumentoDatabase} from '../config/firebase'
 import { Loading } from './Loading'
 
 
-export const Productos = () => {
+export const Usuarios = () => {
 
-  const [listaProductos, setListaProductos] = useState([])
+  const [listaUsuarios, setListaUsuarios] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const cargarProductos = async () => {
+  const cargarUsuarios = async () => {
     setLoading(true)
-    const listaTemporal = await consultarDatabase('lista-productos')
+    const listaTemporal = await consultarDatabase('lista-Usuarios')
     // console.log(listaTemporal);
-    setListaProductos(listaTemporal)
+    setListaUsuarios(listaTemporal)
     setLoading(false)
   }
 
   const onDelete = async (e) => {
-    await eliminarDocumentoDatabase('lista-productos')
+    await eliminarDocumentoDatabase('lista-Usuarios')
   }
 
-  // cargarProductos()
+  // cargarUsuarios()
 
   useEffect(() => {
-    cargarProductos()
+    cargarUsuarios()
   }, [])
 
  
@@ -38,18 +38,18 @@ export const Productos = () => {
           :
           <>
             <h1>
-              Lista Productos
-              <Link to="/lista-productos/create"
+              Lista de Usuarios
+              <Link to="/lista-Usuarios/create"
                 className="btn btn-outline-success float-end"
-              >Adicionar Producto</Link>
+              >Adicionar Usuario</Link>
             </h1>
             <hr />
             <table className="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Descripcion</th>
-                  <th scope="col">Precio Unitario ($)</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Rol</th>
                   <th scope="col">Estado</th>
                   <th scope="col">Editar</th>
                   <th scope="col">Eliminar</th>
@@ -57,21 +57,21 @@ export const Productos = () => {
               </thead>
               <tbody>
                 {
-                  listaProductos.map((producto, index) => (
-                    <tr key={producto.id}>
+                  listaUsuarios.map((usuario, index) => (
+                    <tr key={usuario.id}>
                       <th scope="row">{index + 1}</th>
-                      <td>{producto.descripcion}</td>
-                      <td>{producto.precioUnitario}</td>
-                      <td>{producto.estado}</td>
+                      <td>{usuario.nombre}</td>
+                      <td>{usuario.rol}</td>
+                      <td>{usuario.estado}</td>
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
-                          to={`/lista-productos/${producto.id}`}>
+                          to={`/lista-Usuarios/${usuario.id}`}>
                           Editar
                         </Link>
                       </td>
                       <td>
                       <Link className="btn btn-outline-primary btn-sm"
-                          to={`/productos`} onClick={(e) => onDelete}>
+                          to={`/Usuarios`} onClick={(e) => onDelete}>
                           Delete Product
                         </Link>
                       </td>

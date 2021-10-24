@@ -17,8 +17,7 @@ export const Navbar = ({ usuario }) => {
         <span className="navbar-brand">
           <h2>Devschool</h2>
         </span>
-        {!!usuario && <Link className="btn btn-primary" to="/" exact >Maestro usuarios</Link>}
-        {/* {!!usuario && <Link className="btn btn-secondary" to="/admin" >Registro Productos</Link>} */}
+        {!!usuario && <Link className="btn btn-primary" to="/usuarios" exact >Maestro usuarios</Link>}
         {!!usuario && <Link className="btn btn-secondary" to="/productos" >Lista de Cursos</Link>}
         {!!usuario && <Link className="btn btn-success" to="/ventas" >Registro Ventas</Link>}
         {!usuario && <Link className="btn btn-success" to="/admin" >Iniciar Session</Link>}

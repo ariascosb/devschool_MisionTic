@@ -8,13 +8,14 @@ import {
 import { Admin } from "./components/Admin.jsx";
 import { Home } from "./components/Home.jsx";
 import { Ventas } from "./components/Ventas.jsx";
-import { ListaProductos } from "./components/ListaProductos";
 import { Login } from "./components/Login.js";
 import { Navbar } from './components/Navbar';
 import { auth } from "./config/firebase.js";
 import { Loading } from './components/Loading';
 import { Producto } from './components/Producto';
 import { Productos } from './components/Productos';
+import { Usuario } from './components/Usuario';
+import { Usuarios } from './components/Usuarios';
 
 
 function App() {
@@ -52,7 +53,8 @@ function App() {
                 <Switch>
                     <Route path="/login" component={Login} />
                     <Route path="/admin" component={Admin} />
-                    {/* <Route path="/productos" component={ListaProductos} /> */}
+                    <Route exact path="/lista-usuarios/:id" component={Usuario} />
+                    <Route exact path="/usuarios" component={Usuarios} />
                     <Route exact path="/lista-productos/:id" component={Producto} />
                     <Route exact path="/productos" component={Productos} />
                     <Route path="/ventas" component={Ventas} />

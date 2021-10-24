@@ -5,4 +5,4 @@
 Dentro del proyecto debes ejecutar:
 
 ### `npm install` para instalación de las dependencias
-### `npm start` para levantar el servidor y ver el proyecto
+### `npm start` para iniciar el servidor
