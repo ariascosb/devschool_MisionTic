@@ -34,9 +34,11 @@ export const Ventas = () => {
     setLoading(false)
   }
 
-  function onDelete(id) {
-    eliminarDocumentoDatabase('lista-Ventas', id)
-  }
+  const onDelete = async (idVenta) => {
+    if (window.confirm('¿Está seguro de eliminar la venta?')) {
+      await eliminarDocumentoDatabase('lista-Ventas', idVenta);
+      cargarVentas();
+    }
 
   // cargarVentas()
 
@@ -94,7 +96,9 @@ export const Ventas = () => {
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
                           to={`/ventas`} onClick={() => onDelete(ventas.id)}>
+
                           Eliminar venta
+
                         </Link>
                       </td>
                     </tr>

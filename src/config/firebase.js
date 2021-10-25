@@ -91,7 +91,6 @@ export const actualizarDocumentoDatabase = async (nombreColeccion, id, data) => 
 export const eliminarDocumentoDatabase = async (nombreColeccion, id) => {
   try {
     const respuesta = await deleteDoc(doc(database, nombreColeccion, id))
-    console.log(respuesta);
   } catch (e) {
     throw new Error(e)
   }

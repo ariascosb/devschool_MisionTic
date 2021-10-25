@@ -34,9 +34,11 @@ export const Usuarios = () => {
     setLoading(false)
   }
 
-  function onDelete(id) {
-    eliminarDocumentoDatabase('lista-Usuarios', id)
-  }
+  const onDelete = async (idUsuario) => {
+    if (window.confirm('¿Está seguro de eliminar el usuario?')) {
+      await eliminarDocumentoDatabase('lista-Usuarios', idUsuario)
+      cargarUsuarios()
+    }
 
   // cargarUsuarios()
 
@@ -87,7 +89,9 @@ export const Usuarios = () => {
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
                           to={`/Usuarios`} onClick={() => onDelete(usuario.id)}>
+
                           Eliminar usuario
+
                         </Link>
                       </td>
                     </tr>

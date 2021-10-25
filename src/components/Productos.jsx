@@ -34,9 +34,11 @@ export const Productos = () => {
     setLoading(false)
   }
 
-  function onDelete(id) {
-    eliminarDocumentoDatabase('lista-productos', id)
-  }
+  const onDelete = async (id) => {
+    if (window.confirm('¿Estás seguro de eliminar el producto?')) {
+      await eliminarDocumentoDatabase('lista-productos', id)
+      cargarProductos()
+    }
 
   // cargarProductos()
 
@@ -87,6 +89,7 @@ export const Productos = () => {
                       </td>
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
+
                           to={`/productos`} onClick={() => onDelete(producto.id)}>
                           Eliminar producto
                         </Link>
