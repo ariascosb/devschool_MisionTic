@@ -1,8 +1,11 @@
 <h1 align="center">Entrega final Tercer ciclo</h1>
 
-## Pasos para ejecución
+## Pasos para la ejecución
 
-Dentro del proyecto debes ejecutar:
+Dentro del proyecto ejecutar:
 
-### `npm install` para instalación de las dependencias
-### `npm start` para iniciar el servidor
+## Para instalar las dependencias:
+### `npm install` 
+
+## Para iniciar el servidor:
+### `npm start` 

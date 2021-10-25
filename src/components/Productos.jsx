@@ -54,12 +54,12 @@ export const Productos = () => {
           <Loading />
           :
           <>
-            <h1>
+            <h3>
               Lista Productos
               <Link to="/lista-productos/create"
                 className="btn btn-outline-success float-end"
               >Adicionar Producto</Link>
-            </h1>
+            </h3>
             <hr />
             <table className="table">
               <thead>

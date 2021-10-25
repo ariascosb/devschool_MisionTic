@@ -5,9 +5,8 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import { Admin } from "./components/Admin.jsx";
-import { Home } from "./components/Home.jsx";
 import { Ventas } from "./components/Ventas.jsx";
+import { Venta } from "./components/Venta.jsx";
 import { Login } from "./components/Login.js";
 import { Navbar } from './components/Navbar';
 import { auth } from "./config/firebase.js";
@@ -57,7 +56,8 @@ function App() {
                     <Route exact path="/usuarios" component={Usuarios} />
                     <Route exact path="/lista-productos/:id" component={Producto} />
                     <Route exact path="/productos" component={Productos} />
-                    <Route path="/ventas" component={Ventas} />
+                    <Route exact path="/lista-ventas/:id" component={Venta} />
+                    <Route exact path="/ventas" component={Ventas} />
                     <Route exact path="/" component={Productos} />
                 </Switch>
                 

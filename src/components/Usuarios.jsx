@@ -54,12 +54,12 @@ export const Usuarios = () => {
           <Loading />
           :
           <>
-            <h1>
+            <h3>
               Lista de Usuarios
               <Link to="/lista-Usuarios/create"
                 className="btn btn-outline-success float-end"
               >Adicionar Usuario</Link>
-            </h1>
+            </h3>
             <hr />
             <table className="table">
               <thead>
@@ -89,7 +89,7 @@ export const Usuarios = () => {
                       <td>
                       <Link className="btn btn-outline-primary btn-sm"
                           to={`/Usuarios`} onClick={(e) => onDelete}>
-                          Delete Product
+                          Delete Usuario
                         </Link>
                       </td>
                     </tr>
