@@ -93,15 +93,17 @@ export const Venta = () => {
             <div className="mt-3">
               <div className="row">
                 <div className="offset-md-3 col-md-6">
-                  <form>
+                  <form className="was-validated">
                     <div className="mb-3">
-                      <label className="form-label">Curso</label>
+                      <label for="validationTextarea" className="form-label">Curso</label>
                       <input
                         className="form-control"
+                        id="validationTextarea"
                         type="text"
                         placeholder="curso"
                         value={curso}
                         onChange={(event) => setCurso(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
@@ -112,13 +114,16 @@ export const Venta = () => {
                         placeholder="Precio"
                         value={precio}
                         onChange={(event) => setPrecio(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
                       <label className="form-label me-3">Fecha venta</label>
-                      <input type="date" id="start" name="trip-start"
+                      <input type="date" id="start" name="trip-start" className="form-select"
                         value={fecha} min="2021-01-01" max="2021-12-31"
-                        onChange={(event) => setFecha(event.target.value)} />
+                        onChange={(event) => setFecha(event.target.value)}
+                        required
+                      />
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Cliente</label>
@@ -128,6 +133,7 @@ export const Venta = () => {
                         placeholder="Cliente"
                         value={cliente}
                         onChange={(event) => setCliente(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
@@ -138,13 +144,16 @@ export const Venta = () => {
                         placeholder="Encargado"
                         value={encargado}
                         onChange={(event) => setEncargado(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label me-3">Estado  </label>
+                      <label className="form-label me-3">Estado</label>
                       <select name="select"
+                        className="form-select"
                         placeholder="Estado"
                         value={estado}
+                        required
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
                         <option value="En proceso">En proceso</option>
