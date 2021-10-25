@@ -79,7 +79,7 @@ export const Usuario = () => {
             <div className="mt-3">
               <div className="row">
                 <div className="offset-md-3 col-md-6">
-                  <form>
+                  <form className="was-validated">
                     <div className="mb-3">
                       <label className="form-label">Nombre</label>
                       <input
@@ -88,12 +88,15 @@ export const Usuario = () => {
                         placeholder="nombre"
                         value={nombre}
                         onChange={(event) => setNombre(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
                       <label className="form-label me-3">Rol </label>
                       <select name="select" placeholder="Rol"
+                        className="form-select"
                         value={rol}
+                        required
                         onChange={(event) => setRol(event.target.value)}>
                         <option value=""></option>
                         <option value="Vendedor">Vendedor</option>
@@ -104,6 +107,8 @@ export const Usuario = () => {
                       <label className="form-label me-3">Estado  </label>
                       <select name="select" placeholder="Estado"
                         value={estado}
+                        required
+                        className="form-select"
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
                         <option value="Pendiente">Pendiente</option>

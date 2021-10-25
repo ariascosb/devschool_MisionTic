@@ -79,7 +79,7 @@ export const Producto = () => {
             <div className="mt-3">
               <div className="row">
                 <div className="offset-md-3 col-md-6">
-                  <form>
+                  <form className="was-validated">
                     <div className="mb-3">
                       <label className="form-label">Descripcion</label>
                       <input
@@ -88,6 +88,7 @@ export const Producto = () => {
                         placeholder="Descripcion"
                         value={descripcion}
                         onChange={(event) => setDescripcion(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
@@ -98,12 +99,14 @@ export const Producto = () => {
                         placeholder="Precio Unitario"
                         value={precioUnitario}
                         onChange={(event) => setPrecioUnitario(event.target.value)}
+                        required
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label me-3">Estado  </label>
-                      <select name="select" placeholder="Estado"
+                      <label className="form-label me-3">Estado</label>
+                      <select name="select" placeholder="Estado" className="form-select"
                         value={estado}
+                        required
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
                         <option value="Disponible">Disponible</option>
