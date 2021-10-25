@@ -148,7 +148,7 @@ export const Venta = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label me-3">Estado  </label>
+                      <label className="form-label me-3">Estado</label>
                       <select name="select"
                         className="form-select"
                         placeholder="Estado"
