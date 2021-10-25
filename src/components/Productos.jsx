@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario} from '../config/firebase'
+import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario } from '../config/firebase'
 import { Loading } from './Loading'
 import { useHistory } from 'react-router'
 
@@ -34,8 +34,11 @@ export const Productos = () => {
     setLoading(false)
   }
 
-  const onDelete = async (e) => {
-    await eliminarDocumentoDatabase('lista-productos')
+  const onDelete = async (id) => {
+    if (window.confirm('¿Estás seguro de eliminar el producto?')) {
+      await eliminarDocumentoDatabase('lista-productos', id)
+      cargarProductos()
+    }
   }
 
   // cargarProductos()
@@ -44,7 +47,6 @@ export const Productos = () => {
     cargarProductos()
   }, [])
 
- 
 
   return (
     <div>
@@ -87,8 +89,8 @@ export const Productos = () => {
                         </Link>
                       </td>
                       <td>
-                      <Link className="btn btn-outline-primary btn-sm"
-                          to={`/productos`} onClick={(e) => onDelete}>
+                        <Link className="btn btn-outline-primary btn-sm"
+                          to={`/productos`} onClick={(e) => onDelete(producto.id)}>
                           Delete Product
                         </Link>
                       </td>

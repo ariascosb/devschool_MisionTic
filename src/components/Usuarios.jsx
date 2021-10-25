@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { consultarDatabase, eliminarDocumentoDatabase,datosUsuario} from '../config/firebase'
+import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario } from '../config/firebase'
 import { Loading } from './Loading'
 import { useHistory } from 'react-router'
 
@@ -34,8 +34,11 @@ export const Usuarios = () => {
     setLoading(false)
   }
 
-  const onDelete = async (e) => {
-    await eliminarDocumentoDatabase('lista-Usuarios')
+  const onDelete = async (idUsuario) => {
+    if (window.confirm('¿Está seguro de eliminar el usuario?')) {
+      await eliminarDocumentoDatabase('lista-Usuarios', idUsuario)
+      cargarUsuarios()
+    }
   }
 
   // cargarUsuarios()
@@ -44,7 +47,7 @@ export const Usuarios = () => {
     cargarUsuarios()
   }, [])
 
- 
+
 
   return (
     <div>
@@ -87,8 +90,8 @@ export const Usuarios = () => {
                         </Link>
                       </td>
                       <td>
-                      <Link className="btn btn-outline-primary btn-sm"
-                          to={`/Usuarios`} onClick={(e) => onDelete}>
+                        <Link className="btn btn-outline-primary btn-sm"
+                          to={`/Usuarios`} onClick={() => onDelete(usuario.id)}>
                           Delete Usuario
                         </Link>
                       </td>
