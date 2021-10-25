@@ -108,8 +108,9 @@ export const Usuario = () => {
                         value={estado} 
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
-                        <option value="Disponible">Disponible</option>
-                        <option value="No disponible">No disponible</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Autorizado">Autorizado</option>
+                        <option value="No Autorizado">No Autorizado</option>
                        </select>
                     </div>
                     <button
