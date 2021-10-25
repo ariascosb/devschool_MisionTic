@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { consultarDatabase, eliminarDocumentoDatabase,datosUsuario} from '../config/firebase'
+import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario, usuario } from '../config/firebase'
 import { Loading } from './Loading'
 import { useHistory } from 'react-router'
 
@@ -34,8 +34,8 @@ export const Usuarios = () => {
     setLoading(false)
   }
 
-  const onDelete = async (e) => {
-    await eliminarDocumentoDatabase('lista-Usuarios')
+  function onDelete(id) {
+    eliminarDocumentoDatabase('lista-Usuarios', id)
   }
 
   // cargarUsuarios()
@@ -43,8 +43,6 @@ export const Usuarios = () => {
   useEffect(() => {
     cargarUsuarios()
   }, [])
-
- 
 
   return (
     <div>
@@ -58,7 +56,7 @@ export const Usuarios = () => {
               Lista de Usuarios
               <Link to="/lista-Usuarios/create"
                 className="btn btn-outline-success float-end"
-              >Adicionar Usuario</Link>
+              >Crear nuevo usuario</Link>
             </h3>
             <hr />
             <table className="table">
@@ -87,9 +85,9 @@ export const Usuarios = () => {
                         </Link>
                       </td>
                       <td>
-                      <Link className="btn btn-outline-primary btn-sm"
-                          to={`/Usuarios`} onClick={(e) => onDelete}>
-                          Delete Usuario
+                        <Link className="btn btn-outline-primary btn-sm"
+                          to={`/Usuarios`} onClick={() => onDelete(usuario.id)}>
+                          Eliminar usuario
                         </Link>
                       </td>
                     </tr>
@@ -100,8 +98,6 @@ export const Usuarios = () => {
             </table>
           </>
       }
-
-
     </div>
   )
 }

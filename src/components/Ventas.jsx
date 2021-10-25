@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario} from '../config/firebase'
+import { consultarDatabase, eliminarDocumentoDatabase, datosUsuario } from '../config/firebase'
 import { Loading } from './Loading'
 import { useHistory } from 'react-router'
 
@@ -34,8 +34,8 @@ export const Ventas = () => {
     setLoading(false)
   }
 
-  const onDelete = async (e) => {
-    await eliminarDocumentoDatabase('lista-Ventas')
+  function onDelete(id) {
+    eliminarDocumentoDatabase('lista-Ventas', id)
   }
 
   // cargarVentas()
@@ -44,7 +44,6 @@ export const Ventas = () => {
     cargarVentas()
   }, [])
 
- 
 
   return (
     <div>
@@ -93,9 +92,9 @@ export const Ventas = () => {
                         </Link>
                       </td>
                       <td>
-                      <Link className="btn btn-outline-primary btn-sm"
-                          to={`/ventas`} onClick={(e) => onDelete}>
-                          Delete venta
+                        <Link className="btn btn-outline-primary btn-sm"
+                          to={`/ventas`} onClick={() => onDelete(ventas.id)}>
+                          Eliminar venta
                         </Link>
                       </td>
                     </tr>
