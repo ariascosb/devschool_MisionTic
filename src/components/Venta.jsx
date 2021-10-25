@@ -115,12 +115,10 @@ export const Venta = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Fecha</label>
+                      <label className="form-label me-3">Fecha venta</label>
                       <input type="date" id="start" name="trip-start"
-                      value={fecha}
-                       min="2021-01-01" 
-                       max="2021-12-31" 
-                       onChange={(event) => setFecha(event.target.value)}/>
+                        value={fecha} min="2021-01-01" max="2021-12-31"
+                        onChange={(event) => setFecha(event.target.value)} />
                     </div>
                     <div className="mb-3">
                       <label className="form-label">Cliente</label>
@@ -143,19 +141,19 @@ export const Venta = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Estado  </label>
+                      <label className="form-label me-3">Estado  </label>
                       <select name="select"
-                       placeholder="Estado"
-                        value={estado} 
+                        placeholder="Estado"
+                        value={estado}
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
                         <option value="En proceso">En proceso</option>
                         <option value="Entregada">Entregada</option>
                         <option value="Cancelada">Cancelada</option>
-                       </select>
+                      </select>
                     </div>
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-primary mt-4"
                       onClick={id === 'create' ? handleGuardarVenta : handleActualizarVenta}
                     >
                       {id === 'create' ? 'Guardar' : 'Actualizar'} Venta

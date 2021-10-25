@@ -82,7 +82,7 @@ export const Login = () => {
 
   return (
     <div>
-      <h3 className="text-center">Acceso Usuarios</h3>
+      <h3 className="text-center text-decoration-underline p-4">Acceso Usuarios</h3>
       <div className="row justify-content-center">
         <div className="col-12 col-sm-8 col-md-6 col-xl-4">
 
@@ -126,7 +126,9 @@ export const Login = () => {
 
             <div className="d-grid gap-2">
               <button
-                className="btn btn-outline-success">Ingresar</button>
+                className="btn btn-outline-success mb-1">Ingresar</button>
+              <button
+                className="btn btn-success mb-3">Ingresar con google</button>
             </div>
           </form>
         </div>

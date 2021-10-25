@@ -101,15 +101,14 @@ export const Producto = () => {
                       />
                     </div>
                     <div className="mb-3">
-                      <label className="form-label">Estado  </label>
-                      <select name="select"
-                       placeholder="Estado"
-                        value={estado} 
+                      <label className="form-label me-3">Estado  </label>
+                      <select name="select" placeholder="Estado"
+                        value={estado}
                         onChange={(event) => setEstado(event.target.value)}>
                         <option value=""></option>
                         <option value="Disponible">Disponible</option>
                         <option value="No disponible">No disponible</option>
-                       </select>
+                      </select>
                     </div>
                     <button
                       className="btn btn-primary"
