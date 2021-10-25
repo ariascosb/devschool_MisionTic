@@ -39,14 +39,12 @@ export const Ventas = () => {
       await eliminarDocumentoDatabase('lista-Ventas', idVenta);
       cargarVentas();
     }
-  }
 
   // cargarVentas()
 
   useEffect(() => {
     cargarVentas()
   }, [])
-
 
 
   return (
@@ -98,7 +96,9 @@ export const Ventas = () => {
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
                           to={`/ventas`} onClick={() => onDelete(ventas.id)}>
-                          Delete venta
+
+                          Eliminar venta
+
                         </Link>
                       </td>
                     </tr>

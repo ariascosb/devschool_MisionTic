@@ -19,8 +19,6 @@ export const Home = () => {
 
   }, history)
 
-
-
   return (
     <div>
       <h1>Maestro de usuarios</h1>

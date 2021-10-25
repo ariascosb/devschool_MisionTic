@@ -39,7 +39,6 @@ export const Productos = () => {
       await eliminarDocumentoDatabase('lista-productos', id)
       cargarProductos()
     }
-  }
 
   // cargarProductos()
 
@@ -90,8 +89,9 @@ export const Productos = () => {
                       </td>
                       <td>
                         <Link className="btn btn-outline-primary btn-sm"
-                          to={`/productos`} onClick={(e) => onDelete(producto.id)}>
-                          Delete Product
+
+                          to={`/productos`} onClick={() => onDelete(producto.id)}>
+                          Eliminar producto
                         </Link>
                       </td>
                     </tr>
@@ -102,8 +102,6 @@ export const Productos = () => {
             </table>
           </>
       }
-
-
     </div>
   )
 }
