@@ -39,6 +39,7 @@ export const Productos = () => {
       await eliminarDocumentoDatabase('lista-productos', id)
       cargarProductos()
     }
+  }
 
   // cargarProductos()
 

@@ -39,7 +39,7 @@ export const Ventas = () => {
       await eliminarDocumentoDatabase('lista-Ventas', idVenta);
       cargarVentas();
     }
-
+  }
   // cargarVentas()
 
   useEffect(() => {

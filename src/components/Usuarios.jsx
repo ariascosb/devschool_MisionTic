@@ -39,6 +39,7 @@ export const Usuarios = () => {
       await eliminarDocumentoDatabase('lista-Usuarios', idUsuario)
       cargarUsuarios()
     }
+  }
 
   // cargarUsuarios()
 
