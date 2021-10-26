@@ -60,7 +60,7 @@ function App() {
                     <Route exact path="/productos" component={Productos} />
                     <Route exact path="/lista-ventas/:id" component={Venta} />
                     <Route exact path="/ventas" component={Ventas} />
-                    <Route exact path="/Home" component={Home} />
+                    <Route exact path="/" component={Home} />
                 </Switch>
             </div>
         </Router>

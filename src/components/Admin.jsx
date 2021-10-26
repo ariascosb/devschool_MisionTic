@@ -20,8 +20,6 @@ export const Admin = () => {
 
   }, history)
 
-
-
   return (
     <div>
       <h1>Registro de productos</h1>
