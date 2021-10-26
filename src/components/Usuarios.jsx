@@ -62,15 +62,14 @@ export const Usuarios = () => {
               >Crear nuevo usuario</Link>
             </h3>
             <hr />
-            <table className="table">
+            <table className="table table-hover align-middle text-center">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">Rol</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Eliminar</th>
+                  <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -82,17 +81,13 @@ export const Usuarios = () => {
                       <td>{usuario.rol}</td>
                       <td>{usuario.estado}</td>
                       <td>
-                        <Link className="btn btn-outline-primary btn-sm"
+                        <Link className="btn btn-outline-primary btn-sm m-3"
                           to={`/lista-Usuarios/${usuario.id}`}>
                           Editar
                         </Link>
-                      </td>
-                      <td>
-                        <Link className="btn btn-outline-primary btn-sm"
+                        <Link className="btn btn-outline-danger btn-sm"
                           to={`/Usuarios`} onClick={() => onDelete(usuario.id)}>
-
-                          Eliminar usuario
-
+                          Eliminar
                         </Link>
                       </td>
                     </tr>

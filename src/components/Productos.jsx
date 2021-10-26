@@ -63,15 +63,14 @@ export const Productos = () => {
               >Adicionar Producto</Link>
             </h3>
             <hr />
-            <table className="table">
+            <table className="table table-hover align-middle">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Descripcion</th>
                   <th scope="col">Precio Unitario ($)</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Eliminar</th>
+                  <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -87,12 +86,9 @@ export const Productos = () => {
                           to={`/lista-productos/${producto.id}`}>
                           Editar
                         </Link>
-                      </td>
-                      <td>
-                        <Link className="btn btn-outline-primary btn-sm"
-
+                        <Link className="btn btn-outline-danger btn-sm m-3"
                           to={`/productos`} onClick={() => onDelete(producto.id)}>
-                          Eliminar producto
+                          Eliminar
                         </Link>
                       </td>
                     </tr>

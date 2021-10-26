@@ -62,7 +62,7 @@ export const Ventas = () => {
               >Adicionar Venta</Link>
             </h3>
             <hr />
-            <table className="table">
+            <table className="table table-hover align-middle text-center">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -72,8 +72,7 @@ export const Ventas = () => {
                   <th scope="col">Cliente</th>
                   <th scope="col">Encargado</th>
                   <th scope="col">Estado</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Eliminar</th>
+                  <th scope="col">Acciones</th>
                 </tr>
               </thead>
               <tbody>
@@ -88,17 +87,13 @@ export const Ventas = () => {
                       <td>{ventas.encargado}</td>
                       <td>{ventas.estado}</td>
                       <td>
-                        <Link className="btn btn-outline-primary btn-sm"
+                        <Link className="btn btn-outline-primary btn-sm m-3"
                           to={`/lista-ventas/${ventas.id}`}>
                           Editar
                         </Link>
-                      </td>
-                      <td>
-                        <Link className="btn btn-outline-primary btn-sm"
+                        <Link className="btn btn-outline-danger btn-sm"
                           to={`/ventas`} onClick={() => onDelete(ventas.id)}>
-
                           Eliminar venta
-
                         </Link>
                       </td>
                     </tr>

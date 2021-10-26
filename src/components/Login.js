@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { loginUsuario } from '../config/firebase.js'
+import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 
 export const Login = () => {
 
@@ -40,9 +41,6 @@ export const Login = () => {
       return
     }
 
-    console.log('Paso las validaciones');
-
-
     try {
       const user = await loginUsuario(email, password)
       console.log(user);
@@ -77,6 +75,28 @@ export const Login = () => {
 
     history.push('/')
 
+  }
+
+  // google login
+  const provider = new GoogleAuthProvider();
+  function signInWithGooglePopUp() {
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const user = result.user;
+        console.log(user);
+        history.push('/')
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(
+          `Errors during sign in: " ${errorCode}, ${errorMessage}, ${email}, ${credential}`
+        );
+      });
   }
 
 
@@ -128,7 +148,8 @@ export const Login = () => {
               <button
                 className="btn btn-outline-success mb-1">Ingresar</button>
               <button
-                className="btn btn-success mb-3">Ingresar con google</button>
+                className="btn btn-success mb-3"
+                onClick={signInWithGooglePopUp}>Ingresar con google</button>
             </div>
           </form>
         </div>

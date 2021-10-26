@@ -7,6 +7,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, si
 // Metodos de interaccion con la base de datos
 import { addDoc, collection, getDocs, query, getDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyChd7rSxAdmG0PurtFI3TntcakjXJZ7uWw",
   authDomain: "devschool-mintic.firebaseapp.com",
