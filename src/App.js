@@ -54,7 +54,7 @@ function App() {
             <Navbar usuario={firebaseUser} />
             <div className="container mt-3">
                 <Switch>
-                    <Route path="/login" component={Login} />
+                    <Route exact path="/login" component={Login} />
                     <Route path="/admin" component={Admin} />
                     <Route exact path="/lista-usuarios/:id" component={Usuario} />
                     <Route exact path="/usuarios" component={Usuarios} />
@@ -67,14 +67,8 @@ function App() {
             </div>
         </Router>
     )
-        :
-        <Router><div className="container mt-3">
-            <Switch>
-                <Route exact path="/" component={Home} />
-            </Switch>
-            <Loading />
-        </div>
-        </Router>
+        : <Loading />
+
 }
 
 export default App;
