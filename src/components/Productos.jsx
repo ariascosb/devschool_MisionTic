@@ -25,6 +25,22 @@ export const Productos = () => {
 
   const [listaProductos, setListaProductos] = useState([])
   const [loading, setLoading] = useState(false)
+  const [busqueda, setBusqueda] = useState("")
+
+  const handleChange = e => {
+    setBusqueda(e.target.value);
+    buscar(e.target.value);
+  }
+
+  const buscar = async (termino) => {
+    var resultado = await listaProductos.filter((elemento) => {
+      if (elemento.descripcion.toLowerCase().includes(termino.toLowerCase())
+        || elemento.precioUnitario.toLowerCase().includes(termino.toLowerCase())) {
+        return elemento;
+      }
+    });
+    setListaProductos(resultado);
+  }
 
   const cargarProductos = async () => {
     setLoading(true)
@@ -63,6 +79,11 @@ export const Productos = () => {
               >Adicionar Producto</Link>
             </h3>
             <hr />
+            <form className="d-flex">{<input class="form-control me-2" placeholder="Buscar"
+              value={busqueda} onChange={handleChange} />}
+              <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </form>
+            <br />
             <table className="table table-hover align-middle">
               <thead>
                 <tr>

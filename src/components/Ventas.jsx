@@ -25,6 +25,22 @@ export const Ventas = () => {
 
   const [listaVentas, setListaVentas] = useState([])
   const [loading, setLoading] = useState(false)
+  const [busqueda, setBusqueda] = useState("")
+
+  const handleChange = e => {
+    setBusqueda(e.target.value);
+    buscar(e.target.value);
+  }
+
+  const buscar = async (termino) => {
+    var resultado = await listaVentas.filter((elemento) => {
+      if (elemento.curso.toLowerCase().includes(termino.toLowerCase())
+        || elemento.estado.toLowerCase().includes(termino.toLowerCase())) {
+        return elemento;
+      }
+    });
+    setListaVentas(resultado);
+  }
 
   const cargarVentas = async () => {
     setLoading(true)
@@ -62,6 +78,11 @@ export const Ventas = () => {
               >Adicionar Venta</Link>
             </h3>
             <hr />
+            <form className="d-flex">{<input class="form-control me-2" placeholder="Buscar"
+              value={busqueda} onChange={handleChange} />}
+              <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </form>
+            <br />
             <table className="table table-hover align-middle text-center">
               <thead>
                 <tr>
@@ -76,7 +97,7 @@ export const Ventas = () => {
                 </tr>
               </thead>
               <tbody>
-                {
+                {listaVentas &&
                   listaVentas.map((ventas, index) => (
                     <tr key={ventas.id}>
                       <th scope="row">{index + 1}</th>

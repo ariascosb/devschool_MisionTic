@@ -8,7 +8,6 @@ import { useHistory } from 'react-router'
 export const Usuarios = () => {
 
   const history = useHistory()
-  console.log(history);
 
   useEffect(() => {
     const credencialesUsuario = datosUsuario()
@@ -25,6 +24,22 @@ export const Usuarios = () => {
 
   const [listaUsuarios, setListaUsuarios] = useState([])
   const [loading, setLoading] = useState(false)
+  const [busqueda, setBusqueda] = useState("")
+
+  const handleChange = e => {
+    setBusqueda(e.target.value);
+    buscar(e.target.value);
+  }
+
+  const buscar = async (termino) => {
+    var resultado = await listaUsuarios.filter((elemento) => {
+      if (elemento.nombre.toLowerCase().includes(termino.toLowerCase())
+        || elemento.rol.toLowerCase().includes(termino.toLowerCase())) {
+        return elemento;
+      }
+    });
+    setListaUsuarios(resultado);
+  }
 
   const cargarUsuarios = async () => {
     setLoading(true)
@@ -47,6 +62,7 @@ export const Usuarios = () => {
     cargarUsuarios()
   }, [])
 
+
   return (
     <div>
       {
@@ -62,6 +78,11 @@ export const Usuarios = () => {
               >Crear nuevo usuario</Link>
             </h3>
             <hr />
+            <form className="d-flex">{<input class="form-control me-2" placeholder="Buscar"
+              value={busqueda} onChange={handleChange} />}
+              <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+            </form>
+            <br />
             <table className="table table-hover align-middle text-center">
               <thead>
                 <tr>
@@ -73,7 +94,7 @@ export const Usuarios = () => {
                 </tr>
               </thead>
               <tbody>
-                {
+                {listaUsuarios &&
                   listaUsuarios.map((usuario, index) => (
                     <tr key={usuario.id}>
                       <th scope="row">{index + 1}</th>
@@ -93,7 +114,6 @@ export const Usuarios = () => {
                     </tr>
                   ))
                 }
-
               </tbody>
             </table>
           </>

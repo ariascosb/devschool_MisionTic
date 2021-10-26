@@ -146,10 +146,16 @@ export const Login = () => {
 
             <div className="d-grid gap-2">
               <button
-                className="btn btn-outline-success mb-1">Ingresar</button>
+                className="btn btn-outline-primary mb-1">Ingresar</button>
               <button
-                className="btn btn-success mb-3"
+                className="btn btn-primary mb-3"
                 onClick={signInWithGooglePopUp}>Ingresar con google</button>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="dropdownCheck2" />
+                <label className="form-check-label" for="dropdownCheck">
+                  Remember me
+                </label>
+              </div>
             </div>
           </form>
         </div>
