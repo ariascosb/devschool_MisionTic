@@ -49,7 +49,7 @@ function App() {
     }, [setFirebaseUser])
 
 
-    return firebaseUser !== false ? (
+    return firebaseUser !== null ? (
         <Router>
             <Navbar usuario={firebaseUser} />
             <div className="container mt-3">
@@ -67,7 +67,7 @@ function App() {
             </div>
         </Router>
     )
-        : <Loading />
+        : <Login />
 
 }
 

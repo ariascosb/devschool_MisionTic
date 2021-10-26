@@ -20,7 +20,7 @@ export const Navbar = ({ usuario }) => {
       <nav className="navbar navbar-dark bg-warning bg-gradient navbar-expand-lg">
         <div className="container-fluid">
           <span className="navbar-brand">
-            <Link to="/">
+            <Link to="/Home">
               <img src={logo} alt="logo" width="200" href="/Home" />
             </Link>
           </span>
