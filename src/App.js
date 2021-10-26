@@ -42,9 +42,7 @@ function App() {
                 console.log('El usuario ya no esta logueado');
                 setFirebaseUser(null)
             }
-
         })
-
 
     }, [setFirebaseUser])
 
@@ -54,6 +52,7 @@ function App() {
             <Navbar usuario={firebaseUser} />
             <div className="container mt-3">
                 <Switch>
+                    <Route exact path="/" render={() => { return (firebaseUser ? <Redirect to="/login" /> : <Redirect to="/Home" />) }} />
                     <Route exact path="/login" component={Login} />
                     <Route path="/admin" component={Admin} />
                     <Route exact path="/lista-usuarios/:id" component={Usuario} />
@@ -62,16 +61,14 @@ function App() {
                     <Route exact path="/productos" component={Productos} />
                     <Route exact path="/lista-ventas/:id" component={Venta} />
                     <Route exact path="/ventas" component={Ventas} />
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/Home" component={Home} />
                 </Switch>
             </div>
         </Router>
     )
         :
-        <Router>
-            <Route path="*" component={Login} />
-            <Loading />
-        </Router>
+        <Loading />
+
 
 }
 

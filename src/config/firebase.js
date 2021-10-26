@@ -140,7 +140,6 @@ export const loginUsuario = async (email, password) => {
 export const logOutUsuario = () => {
   const respuesta = signOut(auth)
   console.log(respuesta);
-  console.log('Me sali...!');
 }
 
 //  datos usuario

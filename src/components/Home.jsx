@@ -61,12 +61,12 @@ export const Home = () => {
         <div className="col">
           <div className="card mb-4 rounded-3 shadow-sm border-primary">
             <div className="card-header py-3 text-white bg-primary border-primary">
-              <h4 className="my-0 fw-normal">Empresaril</h4>
+              <h4 className="my-0 fw-normal">Empresarial</h4>
             </div>
             <div className="card-body">
               <h1 className="card-title pricing-card-title">$99.000<small className="text-muted fw-light">/mes</small></h1>
               <ul className="list-unstyled mt-3 mb-4">
-                <li>hasta 30 usuarios</li>
+                <li>Hasta 30 usuarios</li>
                 <li>15 GB de almacenamiento</li>
                 <li>Soporte por email y móvil</li>
                 <li>Acceso al centro de ayuda</li>
