@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect
 } from "react-router-dom";
 import { Ventas } from "./components/Ventas.jsx";
 import { Venta } from "./components/Venta.jsx";
@@ -15,6 +16,7 @@ import { Producto } from './components/Producto';
 import { Productos } from './components/Productos';
 import { Usuario } from './components/Usuario';
 import { Usuarios } from './components/Usuarios';
+import { Home } from './components/Home'
 
 
 function App() {
@@ -58,9 +60,8 @@ function App() {
                     <Route exact path="/productos" component={Productos} />
                     <Route exact path="/lista-ventas/:id" component={Venta} />
                     <Route exact path="/ventas" component={Ventas} />
-                    <Route exact path="/" component={Productos} />
+                    <Route exact path="/Home" component={Home} />
                 </Switch>
-                
             </div>
         </Router>
     )

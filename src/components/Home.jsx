@@ -13,7 +13,7 @@ export const Home = () => {
       console.log('Existe un usuario');
     } else {
       console.log('No Existe un usuario');
-      history.push('/login')
+      history.push('/Home')
     }
 
 
@@ -21,7 +21,7 @@ export const Home = () => {
 
   return (
     <div>
-      <h1>Maestro de usuarios</h1>
+      <h1>Home</h1>
     </div>
   )
 }

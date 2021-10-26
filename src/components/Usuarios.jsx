@@ -83,7 +83,7 @@ export const Usuarios = () => {
               <button class="btn btn-outline-secondary" type="submit">Buscar</button>
             </form>
             <br />
-            <table className="table table-hover align-middle text-center">
+            <table className="table table-hover align-middle text-center table-responsive">
               <thead>
                 <tr>
                   <th scope="col">#</th>

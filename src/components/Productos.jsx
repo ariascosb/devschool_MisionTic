@@ -33,7 +33,7 @@ export const Productos = () => {
   }
 
   const buscar = async (termino) => {
-    var resultado = await listaProductos.filter((elemento) => {
+    let resultado = await listaProductos.filter((elemento) => {
       if (elemento.descripcion.toLowerCase().includes(termino.toLowerCase())
         || elemento.precioUnitario.toLowerCase().includes(termino.toLowerCase())) {
         return elemento;
@@ -84,7 +84,7 @@ export const Productos = () => {
               <button class="btn btn-outline-secondary" type="submit">Buscar</button>
             </form>
             <br />
-            <table className="table table-hover align-middle">
+            <table className="table table-hover align-middle table-responsive">
               <thead>
                 <tr>
                   <th scope="col">#</th>

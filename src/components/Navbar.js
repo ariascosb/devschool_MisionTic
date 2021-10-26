@@ -21,18 +21,21 @@ export const Navbar = ({ usuario }) => {
         <div className="container-fluid">
           <span className="navbar-brand">
             <Link to="/">
-              <img src={logo} alt="logo" width="200" href="/" />
+              <img src={logo} alt="logo" width="200" href="/Home" />
             </Link>
           </span>
-          {!!usuario && <Link className="btn btn-primary bg-gradient" to="/usuarios" exact >Maestro usuarios</Link>}
-          {!!usuario && <Link className="btn btn-primary bg-gradient" to="/productos" >Lista de Cursos</Link>}
-          {!!usuario && <Link className="btn btn-primary bg-gradient" to="/ventas" >Registro de Ventas</Link>}
-          {!usuario && <Link className="btn btn-primary" to="/admin" >Iniciar Sesion</Link>}
-          {!!usuario && <Link
-            className="btn btn-danger bg-gradient"
-            to="/login"
-            onClick={handleLogOut}
-          >Cerrar Sesion</Link>}
+          <div class="d-grid gap-2 d-md-block d-md-flex">
+            {!!usuario && <Link className="btn btn-primary bg-gradient" data-bs-toggle="button" to="/usuarios" exact >Maestro usuarios</Link>}
+            {!!usuario && <Link className="btn btn-primary bg-gradient" data-bs-toggle="button" to="/productos" >Lista de Cursos</Link>}
+            {!!usuario && <Link className="btn btn-primary bg-gradient" data-bs-toggle="button" to="/ventas" >Registro de Ventas</Link>}
+            <div class="vr"></div>
+            {!usuario && <Link className="btn btn-primary" to="/Admin" >Iniciar Sesion</Link>}
+            {!!usuario && <Link
+              className="btn btn-danger bg-gradient"
+              to="/Home"
+              onClick={handleLogOut}
+            >Cerrar Sesion</Link>}
+          </div>
         </div>
       </nav>
     </>

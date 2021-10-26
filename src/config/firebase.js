@@ -164,7 +164,7 @@ onAuthStateChanged(auth, (user) => {
 
   if (user) {
     usuario = user
-    console.log('El usuario logueado');
+    console.log('usuario logueado');
   } else {
     console.log('El usuario ya no esta logueado');
     usuario = undefined

@@ -14,7 +14,7 @@ export const Admin = () => {
       console.log('Existe un usuario');
     } else {
       console.log('No Existe un usuario');
-      history.push('/login')
+      history.push('/Home')
     }
 
 
