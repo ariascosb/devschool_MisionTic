@@ -74,7 +74,7 @@ export const Usuarios = () => {
             <h3>
               Lista de Usuarios
               <Link to="/lista-Usuarios/create"
-                className="btn btn-outline-success float-end"
+                className="btn btn-warning float-end"
               >Crear nuevo usuario</Link>
             </h3>
             <hr />

@@ -74,7 +74,7 @@ export const Ventas = () => {
             <h3>
               Lista Ventas
               <Link to="/lista-Ventas/create"
-                className="btn btn-outline-success float-end"
+                className="btn btn-warning float-end"
               >Adicionar Venta</Link>
             </h3>
             <hr />

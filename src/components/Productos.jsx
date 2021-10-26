@@ -75,7 +75,7 @@ export const Productos = () => {
             <h3>
               Lista Productos
               <Link to="/lista-productos/create"
-                className="btn btn-outline-success float-end"
+                className="btn btn-warning float-end"
               >Adicionar Producto</Link>
             </h3>
             <hr />
