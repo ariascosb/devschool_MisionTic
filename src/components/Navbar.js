@@ -29,7 +29,7 @@ export const Navbar = ({ usuario }) => {
             {!!usuario && <Link className="btn btn-primary bg-gradient" data-bs-toggle="button" to="/productos" >Lista de Cursos</Link>}
             {!!usuario && <Link className="btn btn-primary bg-gradient" data-bs-toggle="button" to="/ventas" >Registro de Ventas</Link>}
             <div class="vr"></div>
-            {!usuario && <Link className="btn btn-primary" to="/Admin" >Iniciar Sesion</Link>}
+            {!usuario && <Link className="btn btn-primary" to="/login" >Iniciar Sesion</Link>}
             {!!usuario && <Link
               className="btn btn-danger bg-gradient"
               to="/Home"
