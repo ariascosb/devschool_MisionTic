@@ -61,7 +61,7 @@ function App() {
                     <Route exact path="/lista-ventas/:id" component={Venta} />
                     <Route exact path="/ventas" component={Ventas} />
                     <Route exact path="/Home" component={Home} />
-                    <Route exact path="/" render={() => { return (firebaseUser ? <Redirect to="/login" /> : <Redirect to="/Home" />) }} />
+                    <Route exact path="/" render={() => { return (!firebaseUser ? <Redirect to="/login" /> : <Redirect to="/Home" />) }} />
                     <Route path="*" component={Login} />
                 </Switch>
             </div>
