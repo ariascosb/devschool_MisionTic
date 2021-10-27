@@ -11,13 +11,13 @@ import { Venta } from "./components/Venta.jsx";
 import { Login } from "./components/Login.js";
 import { Navbar } from './components/Navbar';
 import { auth } from "./config/firebase.js";
-import { Loading } from './components/Loading';
-import { Producto } from './components/Producto';
-import { Productos } from './components/Productos';
-import { Usuario } from './components/Usuario';
-import { Usuarios } from './components/Usuarios';
-import { Home } from './components/Home';
-import { Admin } from './components/Admin'
+import { Loading } from './components/Loading.js';
+import { Producto } from './components/Producto.jsx';
+import { Productos } from './components/Productos.jsx';
+import { Usuario } from './components/Usuario.jsx';
+import { Usuarios } from './components/Usuarios.jsx';
+import { Home } from './components/Home.jsx';
+import { Admin } from './components/Admin.jsx'
 
 
 
@@ -52,16 +52,17 @@ function App() {
             <Navbar usuario={firebaseUser} />
             <div className="container mt-3">
                 <Switch>
-                    <Route exact path="/login" component={Login} />
+                    <Route path="/login" component={Login} />
                     <Route path="/admin" component={Admin} />
-                    <Route exact path="/lista-usuarios/:id" component={Usuario} />
-                    <Route exact path="/usuarios" component={Usuarios} />
-                    <Route exact path="/lista-productos/:id" component={Producto} />
-                    <Route exact path="/productos" component={Productos} />
-                    <Route exact path="/lista-ventas/:id" component={Venta} />
-                    <Route exact path="/ventas" component={Ventas} />
-                    <Route exact path="/Home" component={Home} />
-                    <Route exact path="/" render={() => { return (!firebaseUser ? <Redirect to="/login" /> : <Redirect to="/Home" />) }} />
+                    <Route path="/lista-usuarios/:id" component={Usuario} />
+                    <Route path="/usuarios" component={Usuarios} />
+                    <Route path="/lista-productos/:id" component={Producto} />
+                    <Route path="/productos" component={Productos} />
+                    <Route path="/lista-ventas/:id" component={Venta} />
+                    <Route path="/ventas" component={Ventas} />
+                    <Route path="/home" component={Home} />
+                    <Route exact path="/" component={Home} />
+                    {/* <Route exact path="/" render={() => { return (!firebaseUser ? <Redirect to="/login" /> : <Redirect to="/Home" />) }} /> */}
                     <Route path="*" component={Login} />
                 </Switch>
             </div>
